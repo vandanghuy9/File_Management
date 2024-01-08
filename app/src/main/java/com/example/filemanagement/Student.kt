@@ -1,13 +1,12 @@
 package com.example.filemanagement
 
-import androidx.room.Entity
-import androidx.room.PrimaryKey
+import com.example.filemanagement.model.Address
+import com.example.filemanagement.model.Avatar
+import com.example.filemanagement.model.Company
+import com.squareup.moshi.JsonClass
 
-@Entity(tableName = "students")
-data class Student (
-    @PrimaryKey(autoGenerate = true) var _id: Int = 0,
-    var stdNum: String,
-    var name: String,
-    var dob: String,
-    var hometown: String
-)
+@JsonClass(generateAdapter = true)
+data class Student (var id: Int, var name: String, var username: String,
+                    var email: String, var avatar: Avatar,
+                    var address: Address, var phone: String,
+                    var website: String, var company: Company)
